@@ -1,2 +1,3 @@
-# membership-application
+# Membership Application
+## Version 2.0
 This is a rewrite of the existing membership application project. The new project will be built with an api on the backend hosted on Google Apps Scripts and a separate UI frontend on GitHub pages.
