@@ -1,0 +1,18 @@
+.banner .bold:first-child {
+   border-right: none;
+}
+
+h1.h-revert,
+h2.h-revert,
+h3.h-revert,
+h4.h-revert,
+h5.h-revert,
+h6.h-revert {
+   line-height: revert;
+}
+
+p.lh-normal {
+   line-height: normal;
+   font-size: revert;
+   font-weight: revert;
+}
