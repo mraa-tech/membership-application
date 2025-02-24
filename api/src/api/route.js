@@ -45,6 +45,34 @@ function doGet(e) {
    )
 }
 
-// function doPost(e) {
-//    let result = route("post", e.parameter["q"])
-// }
+function doPost(e) {
+   param = e.parameter
+   init(param)
+
+   try {
+      // Parse the incoming JSON payload
+      const requestData = JSON.parse(e.postData.contents)
+
+      // Example: Extract form values
+      //const name = requestData.name
+      const email = requestData.email
+
+      const data = ROUTES[param["q"]](email)
+      let response = JSON.stringify(data)
+
+      // Process the data (e.g., save to Google Sheets)
+      // const sheet = SpreadsheetApp.openById(
+      //    "YOUR_SPREADSHEET_ID"
+      // ).getSheetByName("Responses")
+      // sheet.appendRow([new Date(), name, email])
+
+      return ContentService.createTextOutput(
+         JSON.stringify({ success: true, data: response })
+      ).setMimeType(ContentService.MimeType.JSON)
+   } catch (error) {
+      return ContentService.createTextOutput(
+         JSON.stringify({ success: false, error: error.message })
+      ).setMimeType(ContentService.MimeType.JSON)
+   }
+}
+

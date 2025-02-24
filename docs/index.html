@@ -4,10 +4,77 @@
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>Membership Application</title>
+            <link
+         href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+         rel="stylesheet"
+         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+         crossorigin="anonymous" />
+
+      <link
+         rel="stylesheet"
+         href="https://mraa-tech.github.io/web-common/css/main.css" />
+      <link rel="stylesheet" href="css/app.css" />
    </head>
    <body>
-      <h1>Membership Application</h1>
-      <a href="newmembers/index.html">New Member Application</a>
-      <a href="jurynewmembers/index.html">New Exhibiting Member Jury</a>
+      <div class="container mraa-container">
+                  <header>
+            <div id="banner" class="banner">
+               <div id="logo fs-2">
+                  <a href="https://www.metrorichmondart.org">MRAA</a>
+                  <span class="text-right" id="supportcontact"></span>
+               </div>
+               <div id="title">
+                  <span class="bold fs-3">New Member Application </span>
+               </div>
+            </div>
+         </header>
+         <div class="row">
+            <div class="col">
+               <div id="intro">
+                  <h2 class="fs-3">Membership Requirements</h2>
+                  <p>
+                     If you would like to become a member of Metro Richmond
+                     Artists Association (MRAA), please click the link below and fill out this online
+                     application.
+                  </p>
+                  <p>
+                     Exhibiting applicants work will be juried by the MRAA board and its membership. We
+                     request at least 5 examples of your work and an additional
+                     2 that show the back of two pieces. It's important to show
+                     the framing and hanging of your work. If your work is not
+                     intended to hang on a wall, such as ceramics or mosaics,
+                     then ignore that requirement. You will receive a letter
+                     informing you of the juries decision. If your work is not
+                     accepted at this time, you will automatically become an
+                     Associate Member until you are ready to re-submit your
+                     work. You may re-submit in a subsequent quarter.
+                  </p>
+                  <p>
+                     View membership
+                     <a
+                        href="https://metrorichmondart.org/membership-faq/"
+                        target="_blank"
+                        >FAQs</a
+                     >
+                  </p>
+               </div>
+               <a href="newmembers/index.html">New Member Application</a>
+               <a href="jurynewmembers/index.html">New Exhibiting Member Jury</a>
+            </div>
+         </div>
+      <footer class="footer">
+         <div id="footer" class="footer mt-3">
+            Metropolitan Richmond Artists Association |
+            <span id="copyright">Copyright &copy;</span>
+            <span id="year"></span>
+         </div>
+      </footer>
+      </div>
+
+      <script src="scripts/app.js" defer></script>
+      <script
+         src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+         crossorigin="anonymous"></script>
    </body>
 </html>
