@@ -16,6 +16,7 @@ function fetchSettings(query) {
       .then((res) => res.json())
       .then((res) => {
          // save to session
+         // console.log(res)
          saveToSession(query, res)
       })
       .catch((err) => {
@@ -25,7 +26,3 @@ function fetchSettings(query) {
 
 document.addEventListener("DOMContentLoaded", showYear)
 
-document.addEventListener(
-   "DOMContentLoaded",
-   fetchSettings("applicationsettings")
-)

@@ -16,3 +16,12 @@ p.lh-normal {
    font-size: revert;
    font-weight: revert;
 }
+
+.hidden {
+   position: absolute;
+   left: -10000px;
+   top: auto;
+   width: 1px;
+   height: 1px;
+   overflow: hidden;
+}

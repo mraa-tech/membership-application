@@ -12,3 +12,22 @@ function showChecking() {
    msg.innerText = "Checking..."
    msg.classList.add("text-info")
 }
+
+function showPageSettings() {
+   showValue(
+      document.getElementById("associatedues"),
+      session.applicationsettings.annualdues
+   )
+   showValue(
+      document.getElementById("exhibitingdues"),
+      session.applicationsettings.annualdues
+   )
+   showValue(
+      document.getElementById("cashdiscount"),
+      session.applicationsettings.cashdiscount
+   )
+}
+
+function showValue(ele, value) {
+   ele.innerText = value
+}
