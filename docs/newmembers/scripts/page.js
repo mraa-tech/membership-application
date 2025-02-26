@@ -12,11 +12,34 @@ async function fetchEmailValidation(event) {
       .then((res) => res.json())
       .then((res) => {
          const msg = `Already a member: ${res.alreadymember}, Already applied: ${res.alreadyapplied}`
-         showResults(msg)
-         showPageSettings()
-         unhideFormFields("formapplication", "hidden")
-         removeElement("#sendbutton")
-         disableField("applicantemail")
+         if (res.alreadymember) {
+            showResults("You are already a member, what are you doing here? 🥸")
+         } else if (!res.alreadymember && res.alreadyapplied) {
+            fetchApplication(email)
+            showResults(msg)
+         } else {
+            showResults(msg)
+            showPageSettings()
+            unhideFormFields("formapplication", "hidden")
+            removeElement("#sendbutton")
+            disableField("applicantemail")
+         }
+      })
+      .catch((err) => {
+         console.log(err)
+      })
+}
+
+async function fetchApplication(event, email) {
+   event.preventDefault()
+   const form = document.getElementById("formapplication")
+   const formData = new FormData(form)
+
+   const url = `${EP_APPLICATION}?q=getapplication&email=${email}`
+   fetch(url)
+      .then((res) => res.json())
+      .then((res) => {
+         console.log(res)
       })
       .catch((err) => {
          console.log(err)

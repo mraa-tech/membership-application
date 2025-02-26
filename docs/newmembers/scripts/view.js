@@ -1,8 +1,9 @@
-function showResults(res) {
-   const messages = document.getElementById("messages")
-   messages.classList.remove("d-none")
+function showResults(m) {
+   // const messages = document.getElementById("messages")
+   // messages.classList.remove("d-none")
    const msg = document.getElementById("resultmsg")
-   msg.innerText = `Already a member: ${res.alreadymember}, Already applied: ${res.alreadyapplied}`
+   msg.innerText = m
+   msg.classList.remove("d-none")
 }
 
 function showChecking() {
@@ -10,7 +11,6 @@ function showChecking() {
    messages.classList.remove("d-none")
    const msg = document.getElementById("resultmsg")
    msg.innerText = "Checking..."
-   msg.classList.add("text-info")
 }
 
 function showPageSettings() {
@@ -25,6 +25,28 @@ function showPageSettings() {
    showValue(
       document.getElementById("cashdiscount"),
       session.applicationsettings.cashdiscount
+   )
+   showValue(
+      document.getElementById("associateduescash"),
+      session.applicationsettings.annualdues -
+         session.applicationsettings.cashdiscount
+   )
+   showValue(
+      document.getElementById("exhibitingduescash"),
+      session.applicationsettings.annualdues -
+         session.applicationsettings.cashdiscount
+   )
+   showValue(
+      document.getElementById("proratedamt"),
+      session.applicationsettings.proratedamount
+   )
+   showValue(
+      document.getElementById("exhibitingduesprorated"),
+      session.applicationsettings.proratedamount
+   )
+   showValue(
+      document.getElementById("associateduesprorated"),
+      session.applicationsettings.proratedamount
    )
 }
 

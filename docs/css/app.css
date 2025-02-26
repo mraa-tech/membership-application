@@ -25,3 +25,9 @@ p.lh-normal {
    height: 1px;
    overflow: hidden;
 }
+
+.message {
+   background-color: lightgray;
+   color: #8540f5;
+   
+}

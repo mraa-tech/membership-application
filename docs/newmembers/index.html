@@ -107,7 +107,7 @@
                         >
                      </div>
                      <div class="row mb-3 mt-2">
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                            <div class="form-check">
                               <input
                                  class="form-check-input"
@@ -118,7 +118,7 @@
                               <label
                                  class="form-check-label"
                                  for="membershipType1">
-                                 Associate Membership - $<span id="associatedues"></span>/year
+                                 Associate Membership - $<span id="associatedues"></span>/year, $<span id="associateduescash"></span>/cash discount, $<span id="associateduesprorated"></span>/prorated
                               </label>
                            </div>
                            <div class="form-check">
@@ -132,27 +132,25 @@
                               <label
                                  class="form-check-label"
                                  for="membershipType2">
-                                 Exhibiting Membership - $<span id="exhibitingdues"></span>/year
+                                 Exhibiting Membership - $<span id="exhibitingdues"></span>/year, $<span id="exhibitingduescash"></span>/cash discount, $<span id="exhibitingduesprorated"></span>/prorated
                               </label>
                            </div>
                         </div>
-                        <div class="col-md-8">
-                           <div class="help-message" id="membershipHelp">
-                              <p class="d-none" id="associateMembership">
-                                 Non-exhibiting artist membership is also
-                                 encouraged.
-                              </p>
-                              <p id="exhibitingMembership">
-                                 Artists wishing to join and exhibit are
-                                 juried.
-                              </p>
+                        <div class="col-md-6">
+                           <div class="help-message" id="fiscalyear">
+                              
+                                 The fiscal year for the MRAA is July 1 to
+                                 June 30.
+                              <br>
+                                 If joining after the first of the year, your dues are prorated to $<span id="proratedamt"></span>
+                              
                            </div>
                         </div>
                      </div>
                      <div class="row mb-3 mt-2">
                         <p>
                            Receive a $<span id="cashdiscount"></span>
-                           discount for paying with cash or check
+                           discount for paying with cash or check. Does not apply to prorated dues.
                         </p>
                      </div>
                      <div class="row mb-3 mt-2">
@@ -360,6 +358,7 @@
                               >
                               <textarea
                                  id="socialMediaLinks"
+                                 class="form-control"
                                  name="socialMediaLinks"></textarea>
                            </div>
                         </div>
@@ -370,6 +369,7 @@
                               >
                               <textarea
                                  id="websites"
+                                 class="form-control"
                                  name="websites"></textarea>
                            </div>
                            <div class="col-md-6">
@@ -380,6 +380,7 @@
                               >
                               <textarea
                                  id="artEducationBackground"
+                                 class="form-control"
                                  name="artEducationBackground"></textarea>
                            </div>
                         </div>
@@ -392,6 +393,7 @@
                               >
                               <textarea
                                  id="artAssociatedMemberships"
+                                 class="form-control"
                                  name="artAssociatedMemberships"></textarea>
                            </div>
                            <div class="col-md-6">
@@ -402,6 +404,7 @@
                               >
                               <textarea
                                  id="exhibitions"
+                                 class="form-control"
                                  name="exhibitions"></textarea>
                            </div>
                         </div>
@@ -434,13 +437,14 @@
                         Send
                      </button>
                   </div>
-                  <div id="resultmsg" class="message d-none">
-                     Results Message
-                  </div>
+
                </div>
+
             </div>
          </div>
-
+         <div id="resultmsg" class="message p-3 mb-3 d-none">
+            Results Message
+         </div>
          <footer class="footer">
             <div id="footer" class="footer mt-3">
                Metropolitan Richmond Artists Association |
