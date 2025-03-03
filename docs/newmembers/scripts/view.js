@@ -1,3 +1,21 @@
+function showApplication(res) {
+   const ele = document.getElementById("formapplication")
+   const t = document.createElement("table")
+
+   for (const [key, value] of Object.entries(res)) {
+      let tr = document.createElement("tr")
+      let tdkey = document.createElement("td")
+      let tdvalue = document.createElement("td")
+      tdkey.innerText = key
+      tdvalue.innerText = value
+      tr.appendChild(tdkey)
+      tr.appendChild(tdvalue)
+      t.appendChild(tr)
+   }
+   ele.innerHTML = ""
+   ele.appendChild(t)
+}
+
 function showResults(m) {
    // const messages = document.getElementById("messages")
    // messages.classList.remove("d-none")

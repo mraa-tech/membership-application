@@ -12,17 +12,14 @@ async function fetchEmailValidation(event) {
       .then((res) => res.json())
       .then((res) => {
          const msg = `Already a member: ${res.alreadymember}, Already applied: ${res.alreadyapplied}`
-         if (res.alreadymember) {
-            showResults("You are already a member, what are you doing here? 🥸")
-         } else if (!res.alreadymember && res.alreadyapplied) {
-            fetchApplication(email)
-            showResults(msg)
-         } else {
+         if (!res.alreadyapplied && !res.alreadymember) {
             showResults(msg)
             showPageSettings()
             unhideFormFields("formapplication", "hidden")
             removeElement("#sendbutton")
             disableField("applicantemail")
+         } else {
+            isApplicantOrMember(res, email)
          }
       })
       .catch((err) => {
@@ -30,20 +27,29 @@ async function fetchEmailValidation(event) {
       })
 }
 
-async function fetchApplication(event, email) {
-   event.preventDefault()
-   const form = document.getElementById("formapplication")
-   const formData = new FormData(form)
+async function isApplicantOrMember(res, email) {
+   const msg = `Already a member: ${res.alreadymember}, Already applied: ${res.alreadyapplied}`
+   if (res.alreadymember) {
+      showResults(msg)
+   } else {
+      fetchApplication(email)
+   }
+}
 
-   const url = `${EP_APPLICATION}?q=getapplication&email=${email}`
+async function fetchApplication(email) {
+   // const form = document.getElementById("formapplication")
+   // const formData = new FormData(form)
+
+   const url = `${EP_APPLICATION}?q=getapplicant&email=${email}`
    fetch(url)
       .then((res) => res.json())
       .then((res) => {
-         console.log(res)
+         showApplication(res)
       })
       .catch((err) => {
          console.log(err)
       })
+   return
 }
 
 function getFormData(form) {

@@ -32,3 +32,9 @@ function getJuryAppSettings() {
 function getApplicationSettings() {
    return session.applicationsettings
 }
+
+function getApplicant() {
+   const email = param["email"]
+   applicationSubmitted = MRAACommon.getApplicationDetail(email)[0]
+   return applicationSubmitted
+}
