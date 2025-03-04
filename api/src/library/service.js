@@ -35,6 +35,17 @@ function getApplicationSettings() {
 
 function getApplicant() {
    const email = param["email"]
-   applicationSubmitted = MRAACommon.getApplicationDetail(email)[0]
+   const withLabels = true
+   let applicationSubmitted = MRAACommon.getApplicationDetail(
+      email,
+      withLabels
+   )[0]
+   // remove applicant id and row before sending back
+   if (applicationSubmitted["Applicant Id"]) {
+      delete applicationSubmitted["Applicant Id"]
+   }
+   if (applicationSubmitted.row) {
+      delete applicationSubmitted.row
+   }
    return applicationSubmitted
 }

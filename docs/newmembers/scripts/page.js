@@ -41,10 +41,15 @@ async function fetchApplication(email) {
    // const formData = new FormData(form)
 
    const url = `${EP_APPLICATION}?q=getapplicant&email=${email}`
+   // const loading = document
+   //    .getElementById("loadingformapplication")
+   //    .classList.add("d-none")
    fetch(url)
       .then((res) => res.json())
       .then((res) => {
+         // hideFormFields("formapplication", "hidden")
          showApplication(res)
+         // loading.classList.add("d-none")
       })
       .catch((err) => {
          console.log(err)
