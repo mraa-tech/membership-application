@@ -32,3 +32,20 @@ function getJuryAppSettings() {
 function getApplicationSettings() {
    return session.applicationsettings
 }
+
+function getApplicant() {
+   const email = param["email"]
+   const withLabels = true
+   let applicationSubmitted = MRAACommon.getApplicationDetail(
+      email,
+      withLabels
+   )[0]
+   // remove applicant id and row before sending back
+   if (applicationSubmitted["Applicant Id"]) {
+      delete applicationSubmitted["Applicant Id"]
+   }
+   if (applicationSubmitted.row) {
+      delete applicationSubmitted.row
+   }
+   return applicationSubmitted
+}

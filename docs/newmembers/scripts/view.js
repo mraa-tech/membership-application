@@ -1,3 +1,32 @@
+function showApplication(res) {
+   const ele = document.getElementById("formapplication")
+   const t = document.createElement("table")
+   const tbody = document.createElement("tbody")
+   const thead = document.createElement("thead")
+   const tr = document.createElement("tr")
+   const th = document.createElement("th")
+   th.setAttribute("colspan", "2")
+   th.innerText = "Application"
+   tr.appendChild(th)
+   thead.appendChild(tr)
+   t.appendChild(thead)
+   t.appendChild(tbody)
+   t.classList.add("table", "table-striped")
+
+   for (const [key, value] of Object.entries(res)) {
+      let tr = document.createElement("tr")
+      let tdkey = document.createElement("th")
+      let tdvalue = document.createElement("td")
+      tdkey.innerText = key
+      tdvalue.innerText = value
+      tr.appendChild(tdkey)
+      tr.appendChild(tdvalue)
+      tbody.appendChild(tr)
+   }
+   ele.innerHTML = ""
+   ele.appendChild(t)
+}
+
 function showResults(m) {
    // const messages = document.getElementById("messages")
    // messages.classList.remove("d-none")

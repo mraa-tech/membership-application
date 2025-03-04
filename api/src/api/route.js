@@ -25,6 +25,7 @@ const testendpoint =
 // const testendpoint = "https://script.google.com/macros/s/AKfycbxnpWX3jXnfHKp079sCKFkow48s-isVIU4V6k_hsbg/dev?q=world"
 // const testendpoint = "https://script.google.com/macros/s/AKfycbxnpWX3jXnfHKp079sCKFkow48s-isVIU4V6k_hsbg/dev?q=jurysettings"
 // const testendpoint = "https://script.google.com/macros/s/AKfycbxnpWX3jXnfHKp079sCKFkow48s-isVIU4V6k_hsbg/dev?q=applicationsettings"
+// const testendpoint = "https://script.google.com/macros/s/AKfycbxnpWX3jXnfHKp079sCKFkow48s-isVIU4V6k_hsbg/dev?q=getapplicant&email=jack.p@email.com"
 
 let param = {}
 ROUTES.path("hello", helloWorld)
@@ -32,6 +33,7 @@ ROUTES.path("world", goneMad)
 ROUTES.path("jurysettings", getJuryAppSettings)
 ROUTES.path("applicationsettings", getApplicationSettings)
 ROUTES.path("validateemail", validateEmail)
+ROUTES.path("getapplicant", getApplicant)
 
 function doGet(e) {
    param = e.parameter

@@ -6,11 +6,14 @@
     "libraries": [
       {
         "userSymbol": "MRAACommon",
-        "version": "1",
         "libraryId": "1hmxwScKpToPD9sAer8NdnZWr_ewPtC9MQojBluJYuu1YgWlaZNn6foIE",
-        "developmentMode": false
+        "version": "3"
       }
     ]
+  },
+  "webapp": {
+    "executeAs": "USER_DEPLOYING",
+    "access": "ANYONE_ANONYMOUS"
   },
   "oauthScopes": [
     "https://www.googleapis.com/auth/drive",
@@ -19,9 +22,5 @@
     "https://www.googleapis.com/auth/gmail.compose",
     "https://www.googleapis.com/auth/gmail.send",
     "https://www.googleapis.com/auth/gmail.modify"
-  ],
-  "webapp": {
-    "executeAs": "USER_DEPLOYING",
-    "access": "ANYONE_ANONYMOUS"
-  }
+  ]
 }
