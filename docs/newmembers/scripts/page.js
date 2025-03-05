@@ -10,7 +10,6 @@ async function fetchEmailValidation(event) {
    fetch(url)
       .then((res) => res.json())
       .then((res) => {
-         const msg = `Already a member: ${res.alreadymember}, Already applied: ${res.alreadyapplied}`
          if (!res.alreadyapplied && !res.alreadymember) {
             hideChecking("generalmsg")
             showPageSettings()
@@ -33,6 +32,8 @@ async function isApplicantOrMember(res, email) {
       clearMessages("generalmsg")
       hideChecking("generalmsg")
       showResults("resultmsg", msg)
+      removeElement("#sendbutton")
+      disableField("applicantemail")
    } else {
       fetchApplication(email)
    }
