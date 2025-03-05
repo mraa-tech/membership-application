@@ -27,8 +27,11 @@ async function fetchEmailValidation(event) {
 }
 
 async function isApplicantOrMember(res, email) {
-   const msg = `Already a member: ${res.alreadymember}, Already applied: ${res.alreadyapplied}`
+   const msg =
+      "Your application was accepted and you are an MRAA member. Congratulations!"
    if (res.alreadymember) {
+      clearMessages("generalmsg")
+      hideChecking("generalmsg")
       showResults("resultmsg", msg)
    } else {
       fetchApplication(email)
