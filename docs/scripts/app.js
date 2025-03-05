@@ -4,6 +4,11 @@ const EP_JURY = "jury-url-goes-here"
 const TEST_EP_APPLICATION =
    "https://script.google.com/macros/s/AKfycbxnpWX3jXnfHKp079sCKFkow48s-isVIU4V6k_hsbg/dev"
 
+const session = {}
+function saveToSession(category, data) {
+   session[category] = data
+}
+
 function showYear() {
    const yr = new Date().getFullYear()
    const ele = document.getElementById("year")
@@ -25,4 +30,3 @@ function fetchSettings(query) {
 }
 
 document.addEventListener("DOMContentLoaded", showYear)
-

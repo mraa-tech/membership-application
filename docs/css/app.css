@@ -29,5 +29,11 @@ p.lh-normal {
 .message {
    background-color: lightgray;
    color: #8540f5;
-   
+   border-radius: 4px;
+   padding: 0 15px;
+   margin: 8px 0;
+}
+
+.navbar-nav .nav-link.active {
+   font-weight: bold !important;
 }

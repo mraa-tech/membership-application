@@ -13,9 +13,9 @@
          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,0,0" />
       <title>MRAA New Member Application</title>
       <link
-         href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
          rel="stylesheet"
-         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
          crossorigin="anonymous" />
 
       <link
@@ -41,33 +41,37 @@
          <div class="row">
             <div class="col">
                <h2 class="mt-2 fs-3">Application Form</h2>
-               <div id="messages" class="mt-2">
-                  <div id="generalmsg" class="message d-none mb-2">
-                     General Messages
-                  </div>
+               <div id="intro">
+                  <p>
+                     All MRAA communication will be sent to the email address
+                     you provide and it will be used as your member id for
+                     entering shows and events.
+                  </p>
+                  <p>
+                     If you have already submitted an application, re-sending
+                     your email address will retrieve your application for
+                     review.
+                  </p>
                </div>
+            </div>
+         </div>
+         <div id="messages">
+            <div id="generalmsg" class="message d-none">
+               <h2 class="fs-4">General Messages</h2>
+               <div id="generalmsglist" class="list-group"></div>
+            </div>
+            <div id="resultmsg" class="message d-none">
+               <h2 class="fs-4">Results Messages</h2>
+               <div id="resultmsglist" class="list-group"></div>
             </div>
          </div>
          <div class="row">
             <div class="col">
                <!-- Login Form -->
                <form action="#" id="formlogin" class="needs-validation">
-                  <div id="login">
-                     <p>
-                        All MRAA communication will be sent to the email
-                        address you provide and it will be used as your
-                        member id for entering shows and events.
-                     </p>
-                     <p>
-                        If you have already submitted an application,
-                        re-sending your email address will retrieve your
-                        application for review.
-                     </p>
                   <div class="row g-3 mt-2 mb-2">
                      <div class="col-auto col-form-label">
-                        <label for="applicantemail"
-                           >Email Address</label
-                        >
+                        <label for="applicantemail">Email Address</label>
                      </div>
                      <div class="col-sm-6">
                         <input
@@ -81,14 +85,16 @@
                            Must enter a valid email address
                         </div>
                      </div>
-                     <div id="statusmsg" class="message d-none">
-                        Status Message
-                     </div>
                   </div>
-                  <div class="loading alt-bg" id="formapplication">
-                     <span id="loadingformapplication" class="d-none"
-                        >Checking email ...</span
-                     >
+                  <div class="row g-3 mt-2 mb-2">
+                     <div>
+                        <button
+                           type="submit"
+                           class="btn btn-primary mb-3 mt-3"
+                           id="sendbutton">
+                           Send
+                        </button>
+                     </div>
                   </div>
                </form>
                <form action="#" id="formapplication">
@@ -102,9 +108,7 @@
                         </div>
                      </div>
                      <div class="row mb-3 mt-2">
-                        <span class="fw-bold"
-                           >Membership Type Requested</span
-                        >
+                        <span class="fw-bold">Membership Type Requested</span>
                      </div>
                      <div class="row mb-3 mt-2">
                         <div class="col-md-6">
@@ -118,7 +122,12 @@
                               <label
                                  class="form-check-label"
                                  for="membershipType1">
-                                 Associate Membership - $<span id="associatedues"></span>/year, $<span id="associateduescash"></span>/cash discount, $<span id="associateduesprorated"></span>/prorated
+                                 Associate Membership - $<span
+                                    id="associatedues"></span
+                                 >/year, $<span id="associateduescash"></span
+                                 >/cash discount, $<span
+                                    id="associateduesprorated"></span
+                                 >/prorated
                               </label>
                            </div>
                            <div class="form-check">
@@ -132,32 +141,34 @@
                               <label
                                  class="form-check-label"
                                  for="membershipType2">
-                                 Exhibiting Membership - $<span id="exhibitingdues"></span>/year, $<span id="exhibitingduescash"></span>/cash discount, $<span id="exhibitingduesprorated"></span>/prorated
+                                 Exhibiting Membership - $<span
+                                    id="exhibitingdues"></span
+                                 >/year, $<span id="exhibitingduescash"></span
+                                 >/cash discount, $<span
+                                    id="exhibitingduesprorated"></span
+                                 >/prorated
                               </label>
                            </div>
                         </div>
                         <div class="col-md-6">
                            <div class="help-message" id="fiscalyear">
-                              
-                                 The fiscal year for the MRAA is July 1 to
-                                 June 30.
-                              <br>
-                                 If joining after the first of the year, your dues are prorated to $<span id="proratedamt"></span>
-                              
+                              The fiscal year for the MRAA is July 1 to June 30.
+                              <br />
+                              If joining after the first of the year, your dues
+                              are prorated to $<span id="proratedamt"></span>
                            </div>
                         </div>
                      </div>
                      <div class="row mb-3 mt-2">
                         <p>
                            Receive a $<span id="cashdiscount"></span>
-                           discount for paying with cash or check. Does not apply to prorated dues.
+                           discount for paying with cash or check. Does not
+                           apply to prorated dues.
                         </p>
                      </div>
                      <div class="row mb-3 mt-2">
                         <div class="col-md-6">
-                           <label
-                              for="contactNumber"
-                              class="col-form-label"
+                           <label for="contactNumber" class="col-form-label"
                               >Contact Number</label
                            >
                            <input
@@ -169,15 +180,12 @@
                               pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                               required />
                            <div class="invalid-feedback">
-                              Enter a 10 digit contact number, ex.
-                              555-111-2233
+                              Enter a 10 digit contact number, ex. 555-111-2233
                            </div>
                         </div>
                      </div>
                      <div class="row mb-3 mt-2">
-                        <label
-                           for="firstName"
-                           class="col-md-2 col-form-label"
+                        <label for="firstName" class="col-md-2 col-form-label"
                            >First Name</label
                         >
                         <div class="col-md-4">
@@ -189,9 +197,7 @@
                               placeholder="Required"
                               required />
                         </div>
-                        <label
-                           for="lastName"
-                           class="col-md-2 col-form-label"
+                        <label for="lastName" class="col-md-2 col-form-label"
                            >Last Name</label
                         >
                         <div class="col-md-4">
@@ -261,9 +267,7 @@
                               Enter state 2 letter abbreviation
                            </div>
                         </div>
-                        <label
-                           for="zipCode"
-                           class="col-md-1 col-form-label"
+                        <label for="zipCode" class="col-md-1 col-form-label"
                            >Zip</label
                         >
                         <div class="col-md-3">
@@ -296,9 +300,7 @@
                      </div>
                      <div class="row mb-3 mt-2">
                         <div class="col-md-6">
-                           <label
-                              for="artistSignature"
-                              class="col-form-label"
+                           <label for="artistSignature" class="col-form-label"
                               >Artist Signature</label
                            >
                            <input
@@ -311,9 +313,7 @@
                            </div>
                         </div>
                         <div class="col-md-6">
-                           <label
-                              for="businessName"
-                              class="col-form-label"
+                           <label for="businessName" class="col-form-label"
                               >Business Name</label
                            >
                            <input
@@ -322,9 +322,9 @@
                               name="businessName"
                               class="form-control" />
                            <div id="businessNameHelp" class="form-text">
-                              If your PayPal account is under a business
-                              name, letting us know will help us match you
-                              to your payment.
+                              If your PayPal account is under a business name,
+                              letting us know will help us match you to your
+                              payment.
                            </div>
                         </div>
                      </div>
@@ -340,8 +340,7 @@
                               <label
                                  for="reasonsForInterest"
                                  class="col-form-label"
-                                 >Reasons for Interest in
-                                 Membership</label
+                                 >Reasons for Interest in Membership</label
                               >
                               <textarea
                                  class="form-control"
@@ -397,9 +396,7 @@
                                  name="artAssociatedMemberships"></textarea>
                            </div>
                            <div class="col-md-6">
-                              <label
-                                 for="exhibitions"
-                                 class="col-form-label"
+                              <label for="exhibitions" class="col-form-label"
                                  >Recent Exhibitions</label
                               >
                               <textarea
@@ -418,33 +415,15 @@
                         Submit Application
                      </button>
                   </fieldset>
-                  <div class="col-auto">
-                     <div id="uploadWaiting" class="uploading d-none">
-                        <div class="animation line-up">
-                        Saving Application, Please Wait ...
-                        </div>
-                     </div>
-
-                  </div>
                </form>
-
-               <div class="row g-3 mt-2 mb-2">
-                  <div>
-                     <button
-                        type="submit"
-                        class="btn btn-primary mb-3 mt-3"
-                        id="sendbutton">
-                        Send
-                     </button>
+               <div id="savingmsg" class="message saving d-none">
+                  <div class="animation line-up">
+                     Saving Application, Please Wait ...
                   </div>
-
                </div>
-
             </div>
          </div>
-         <div id="resultmsg" class="message p-3 mb-3 d-none">
-            Results Message
-         </div>
+
          <footer class="footer">
             <div id="footer" class="footer mt-3">
                Metropolitan Richmond Artists Association |
@@ -455,12 +434,11 @@
       </div>
 
       <script src="../scripts/app.js"></script>
-      <script src="../scripts/service.js"></script>
       <script src="scripts/page.js"></script>
       <script src="scripts/view.js"></script>
       <script
-         src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
          crossorigin="anonymous"></script>
    </body>
 </html>

@@ -25,21 +25,36 @@ function showApplication(res) {
    }
    ele.innerHTML = ""
    ele.appendChild(t)
+   return ele
 }
 
-function showResults(m) {
-   // const messages = document.getElementById("messages")
-   // messages.classList.remove("d-none")
-   const msg = document.getElementById("resultmsg")
-   msg.innerText = m
-   msg.classList.remove("d-none")
-}
-
-function showChecking() {
-   const messages = document.getElementById("messages")
+function showResults(id, res) {
+   const messages = document.getElementById(id)
+   const msg = document.getElementById(`${id}list`)
    messages.classList.remove("d-none")
-   const msg = document.getElementById("resultmsg")
-   msg.innerText = "Checking..."
+   msg.innerText = res
+   return messages
+}
+
+function showChecking(msglist, msgtext) {
+   const messages = document.getElementById(msglist)
+   const msg = document.getElementById(`${msglist}list`)
+   messages.classList.remove("d-none")
+   msg.innerText = msgtext
+   return messages
+}
+
+function hideChecking(msglist) {
+   const messages = document.getElementById(msglist)
+   messages.classList.add("d-none")
+   return messages
+}
+
+function clearMessages(msglist) {
+   const messages = document.getElementById(msglist)
+   const msg = document.getElementById(`${msglist}list`)
+   msg.innerText = ""
+   return messages
 }
 
 function showPageSettings() {
@@ -81,4 +96,40 @@ function showPageSettings() {
 
 function showValue(ele, value) {
    ele.innerText = value
+   return ele
+}
+
+function unhideFormFields(form, c) {
+   const selector = `#${form} .${c}`
+   const fields = document.querySelectorAll(selector)
+   fields.forEach((field) => {
+      field.classList.remove("hidden")
+   })
+   return fields
+}
+
+function hideFormFields(form, c) {
+   const selector = `#${form} .${c}`
+   const fields = document.querySelectorAll(selector)
+   fields.forEach((field) => {
+      field.classList.add("hidden")
+   })
+   return fields
+}
+
+function removeElement(selector) {
+   const element = document.querySelector(selector)
+   element.remove()
+}
+
+function disableField(field) {
+   const ele = document.getElementById(field)
+   ele.disabled = true
+   return ele
+}
+
+function enableField(field) {
+   const ele = document.getElementById(field)
+   ele.disabled = false
+   return ele
 }
