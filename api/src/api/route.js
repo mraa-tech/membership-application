@@ -34,6 +34,7 @@ ROUTES.path("jurysettings", getJuryAppSettings)
 ROUTES.path("applicationsettings", getApplicationSettings)
 ROUTES.path("validateemail", validateEmail)
 ROUTES.path("getapplicant", getApplicant)
+ROUTES.path("putapplicant", putApplicant)
 
 function doGet(e) {
    param = e.parameter
@@ -55,18 +56,10 @@ function doPost(e) {
       // Parse the incoming JSON payload
       const requestData = JSON.parse(e.postData.contents)
 
-      // Example: Extract form values
-      //const name = requestData.name
       const email = requestData.email
 
       const data = ROUTES[param["q"]](email)
       let response = JSON.stringify(data)
-
-      // Process the data (e.g., save to Google Sheets)
-      // const sheet = SpreadsheetApp.openById(
-      //    "YOUR_SPREADSHEET_ID"
-      // ).getSheetByName("Responses")
-      // sheet.appendRow([new Date(), name, email])
 
       return ContentService.createTextOutput(
          JSON.stringify({ success: true, data: response })

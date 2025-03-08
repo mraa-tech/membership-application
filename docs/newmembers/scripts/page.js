@@ -56,16 +56,48 @@ async function fetchApplication(email) {
    return
 }
 
-function getFormData(form) {
-   const formData = new FormData(document.getElementById(form))
+function getFormData(id) {
+   const formData = new FormData(document.getElementById(id))
+   formData.append(
+      "applicantEmail",
+      document.getElementById("applicantemail").value
+   )
    return Object.fromEntries(formData.entries())
 }
 
-function getFormRequired(form) {
+function getFormRequired(id) {
    const requiredFields = document
-      .getElementById(form)
+      .getElementById(id)
       .querySelectorAll("[required]")
-   console.log(requiredFields)
+   const flds = {}
+   requiredFields.forEach((field) => {
+      flds[field.name] = field.value
+   })
+
+   return flds
+}
+
+async function sendForm(form) {
+   const formData = getFormData(form)
+
+   console.log(formData)
+   return
+
+   const url = `${EP_APPLICATION}?q=putapplicant`
+   fetch(url, {
+      method: "POST",
+      body: JSON.stringify(formData),
+      headers: {
+         "Content-Type": "application/json",
+      },
+   })
+      .then((res) => res.json())
+      .then((res) => {
+         console.log(res)
+      })
+      .catch((err) => {
+         console.log(err)
+      })
    return
 }
 
@@ -73,7 +105,17 @@ document
    .getElementById("formlogin")
    .addEventListener("submit", fetchEmailValidation)
 
+document.getElementById("saveButton").addEventListener("click", (e) => {
+   e.preventDefault()
+   sendForm("formapplication")
+})
+
 document.addEventListener(
    "DOMContentLoaded",
    fetchSettings("applicationsettings")
+)
+
+document.addEventListener(
+   "DOMContentLoaded",
+   fillForm("formapplication", testData())
 )

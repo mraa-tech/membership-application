@@ -49,3 +49,9 @@ function getApplicant() {
    }
    return applicationSubmitted
 }
+
+function putApplicant(email) {
+   const data = JSON.parse(e.postData.contents)
+   const result = MRAACommon.putApplicationDetail(email, data)
+   return result
+}
